@@ -1,13 +1,22 @@
 {
-  "name": "static-site",
+  "name": "readme-generator-pro",
   "version": "1.0.0",
-  "description": "",
+  "description": "Professional README Generator",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/c-navarroperez/README-Generator-Pro.git"
+  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/c-navarroperez/README-Generator-Pro/issues"
+  },
+  "homepage": "https://github.com/c-navarroperez/README-Generator-Pro#readme",
   "dependencies": {
     "inquirer": "^6.3.1"
   }
