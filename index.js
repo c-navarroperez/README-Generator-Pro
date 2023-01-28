@@ -5,54 +5,55 @@ const generateMarkdown = require('./utils/generateMarkdown');
 
 // array of questions for user
 const questions = [
-    {
-        // Boolean choice to begin process
-        name: 'createReadMeChoice',
-        question: 'Begin README.md file generator? (y/n)',
-    },
+    // {
+    //     // Boolean choice to begin process
+    //     name: 'createReadMeChoice',
+    //     message: 'Begin README.md file generator? (y/n)',
+    // },
     { 
+        type: 'input',
         name: 'projectTitle', 
-        question: 'Enter project title:' 
+        message: 'Enter project title:' 
     },
     {
         name: 'description',
-        question: 'Enter project description:'
+        message: 'Enter project description:'
     },
     // {
     //     name: 'tableOfContents',
-    //     question:'?'
+    //     message:'?'
     // },
     {
         name: 'installation',
-        question: 'Enter installation intructions:',
+        message: 'Enter installation intructions:',
     },
     { 
         name: 'usage', 
-        question: 'Enter use instructions:' 
+        message: 'Enter use instructions:' 
     },
     {
         name: 'license',
-        question: 'Choose a license for your project:',
+        message: 'Choose a license for your project:',
     },
     {
         name: 'contributing',
-        question: 'Enter contribution section:',
+        message: 'Enter contribution guidelines:',
     },
     { 
         name: 'tests', 
-        question: 'Enter tests section text:' 
+        message: 'Enter test instructions:' 
     },
     {
         name: 'questions',
-        question: 'Enter instructions on how to contact the project admin. for feedback or questions:',
+        message: 'Enter instructions on how to contact the project admin. for feedback or questions:',
     },
     {
         name: 'githubUserName',
-        question: 'Enter GitHub username:',
+        message: 'Enter GitHub username:',
     },
     {
         name: 'emailAdress',
-        question: 'Enter email address for your feedback contact:',
+        message: 'Enter email address for your feedback contact:',
     },
     // {
         // Save to a file location
@@ -66,7 +67,7 @@ function writeToFile(fileName, data) {
 
 // function to initialize program
 function init() {
-
+    
 }
 
 // function call to initialize program
