@@ -27,7 +27,7 @@ function generateMarkdown(data) {
     ${data.tests}
 
     ## Questions
-    ${tests}
+    ${data.questions}
 
     Github link: [${data.githubUserName}](https://github.com/${data.githubUserName})
 
@@ -36,7 +36,7 @@ function generateMarkdown(data) {
     ---
     
     ## License 
-    Licensed under the [${data.license}](<!-- include link to your license file here-->) license. <!--- --->
+    Licensed under the [${data.license}](<!-- include link to your license file here-->) license.
   `;
 }
 
