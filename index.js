@@ -1,5 +1,5 @@
 const fs = require('fs');
-const path = require('path');
+// const path = require('path');
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown');
 
@@ -98,6 +98,8 @@ function init() {
             .then((answers) => {
                 // Use user feedback for... whatever!!
                 console.log(answers);
+                console.log(generateMarkdown(answers));
+                
             })
             // .catch((error) => {
             //     if (error.isTtyError) {
