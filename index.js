@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require('fs').promises;
 // const path = require('path');
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown');
@@ -77,7 +77,12 @@ const questions = [
 ];
 
 // function to write README file
-function writeToFile(fileName, data) {
+function writeToFile(data) {
+    return fs.writeFile('FEADME.md', data)
+    .then(() => {
+      console.log(`You have successfully created the FEADME.md file`);
+      console.log(`The contents of the file are:\n${data}`);
+    });
 }
 
 // function to initialize program
@@ -97,10 +102,13 @@ function init() {
             inquirer.prompt(questions)
             .then((answers) => {
                 // Use user feedback for... whatever!!
-                console.log(answers);
-                console.log(generateMarkdown(answers));
-                
+                // console.log(answers);
+                // console.log(generateMarkdown(answers));
+                const markdown = generateMarkdown(answers);
+                // console.log(markdown);
+                writeToFile(markdown);
             })
+            .then((data) => console.log(data))
             // .catch((error) => {
             //     if (error.isTtyError) {
             //       // Prompt couldn't be rendered in the current environment
