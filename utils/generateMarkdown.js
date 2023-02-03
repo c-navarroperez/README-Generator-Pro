@@ -1,42 +1,42 @@
 // function to generate markdown for README
 function generateMarkdown(data) {
   return `
-    # ${data.title}
+  # ${data.title}
 
-    ## Description 
-    ${data.description}
+  ## Description 
+  ${data.description}
 
-    ## Table of Contents
-    * [Installation](#installation)
-    * [Usage](#usage)
-    * [License](#license)
-    * [Contributing](#contributing) 
-    * [Tests](#tests) 
-    * [Questions](#questions) 
-    
-    ## Installation
-    ${data.installation}
+  ## Table of Contents
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [License](#license)
+  * [Contributing](#contributing) 
+  * [Tests](#tests) 
+  * [Questions](#questions) 
+  
+  ## Installation
+  ${data.installation}
 
-    ## Usage 
-    ${data.usage}
+  ## Usage 
+  ${data.usage}
 
-    ## Contributing 
-    ${data.contributing}
+  ## Contributing 
+  ${data.contributing}
 
-    ## Tests
-    ${data.tests}
+  ## Tests
+  ${data.tests}
 
-    ## Questions
-    ${tests}
+  ## Questions
+  ${data.questions}
 
-    Github link: [${data.githubUserName}](https://github.com/${data.githubUserName})
+  Github link: [${data.githubUserName}](https://github.com/${data.githubUserName})
 
-    Email adress: ${data.emailAddress}
-    
-    ---
-    
-    ## License 
-    Licensed under the [${data.license}](<!-- include link to your license file here-->) license. <!--- --->
+  Email adress: ${data.emailAddress}
+  
+  ---
+  
+  ## License 
+  Licensed under the [${data.license}](<!-- include link to your license file here-->) license.
   `;
 }
 

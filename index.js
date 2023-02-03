@@ -5,15 +5,9 @@ const generateMarkdown = require('./utils/generateMarkdown');
 
 // array of questions for user
 const questions = [
-    // {
-    //     // Boolean choice to begin process
-    //     type:'confirm',
-    //     name: 'createReadMeChoice',
-    //     message: 'Begin README.md file generator?',
-    // },
     { 
         type: 'input',
-        name: 'projectTitle', 
+        name: 'title', 
         message: 'Enter project title:' 
     },
     {
@@ -21,10 +15,6 @@ const questions = [
         name: 'description',
         message: 'Enter project description:'
     },
-    // {
-    //     name: 'tableOfContents',
-    //     message:'?'
-    // },
     {
         type: 'editor',
         name: 'installation',
@@ -34,26 +24,6 @@ const questions = [
         type: 'editor',
         name: 'usage', 
         message: 'Enter use instructions:' 
-    },
-    {
-        type: 'list',
-        name: 'license',
-        message: 'Choose a license for your project:',
-        choices: [  'None',
-                    'Apache License 2.0', 
-                    'GNU General Public License v3.0', 
-                    'MIT License', 
-                    'BSD 2-Clause "Simplified" License', 
-                    'BSD 3-Clause "New" or "Revised" License', 
-                    'Boost Software License 1.0', 
-                    'Creative Commons Zero v1.0 Universal', 
-                    'Eclipse Public License 2.0', 
-                    'GNU Affero General Public License v3.0', 
-                    'GNU General Public License v2.0', 
-                    'GNU Lesser General Public License v2.1', 
-                    'Mozilla Public License 2.0', 
-                    'The Unlicense'
-                ]
     },
     {
         type: 'editor',
@@ -80,21 +50,52 @@ const questions = [
         name: 'questions',
         message: 'Enter instructions on how to contact the project admin. for questions, feedback or to report issues:',
     },
-    // {
-        // Save to a file location
-        // Request path location : "Select location to save the file:"
-    // },
+    {
+        type: 'list',
+        name: 'license',
+        message: 'Choose a license for your project:',
+        choices: [  'None',
+                    'Apache License 2.0', 
+                    'GNU General Public License v3.0', 
+                    'MIT License', 
+                    'BSD 2-Clause "Simplified" License', 
+                    'BSD 3-Clause "New" or "Revised" License', 
+                    'Boost Software License 1.0', 
+                    'Creative Commons Zero v1.0 Universal', 
+                    'Eclipse Public License 2.0', 
+                    'GNU Affero General Public License v3.0', 
+                    'GNU General Public License v2.0', 
+                    'GNU Lesser General Public License v2.1', 
+                    'Mozilla Public License 2.0', 
+                    'The Unlicense'
+                ]
+    },
+    {
+        type: 'input',
+        name: 'path',
+        message: 'Enter folder path where the file will be saved to:',
+        default: './'
+    }
 ];
 
 // function to write README file
-function writeToFile(fileName, data) {
+function writeToFile(data, folderPath) {
+    const fileName = 'README.md'
+        return fs.writeFile(path.join(folderPath, `/${fileName}`), data, (err) => {
+        if (err) {
+            console.log(err);
+        } else {
+            // console.log("Your file has been created");
+            console.log(`You have successfully created the ${fileName} file`);
+            console.log(`The contents of the file are:\n${data}`);
+        }
+    })
 }
 
 // function to initialize program
 function init() {
     console.log('\n--------------- README.md File Generator ---------------\n');
-
-    // Boolean choice to begin the process of generating the README file
+    // Choice to begin the process of generating the README file
     inquirer.prompt([
         {
             type:'confirm',
@@ -103,20 +104,13 @@ function init() {
         }
     ])
     .then(answers => {
-        // If the prompt questions
         if (answers.createReadMeChoice){
             inquirer.prompt(questions)
             .then((answers) => {
-                // Use user feedback for... whatever!!
-                console.log(answers);
+                const markdown = generateMarkdown(answers);
+                
+                writeToFile(markdown, answers.path);
             })
-            // .catch((error) => {
-            //     if (error.isTtyError) {
-            //       // Prompt couldn't be rendered in the current environment
-            //     } else {
-            //       // Something else went wrong
-            //     }
-            // });
             } else {
                 console.log('\n---------------------- Goodbye :) ----------------------\n');
             }   
