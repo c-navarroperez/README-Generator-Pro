@@ -1,5 +1,5 @@
-const fs = require('fs').promises;
-// const path = require('path');
+const fs = require('fs');
+const path = require('path');
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown');
 
@@ -70,26 +70,32 @@ const questions = [
                     'The Unlicense'
                 ]
     },
-    // {
-        // Save to a file location
-        // Request path location : "Select location to save the file:"
-    // },
+    {
+        type: 'input',
+        name: 'path',
+        message: 'Enter folder path where the file will be saved to:',
+        default: './'
+    }
 ];
 
 // function to write README file
-function writeToFile(data) {
-    return fs.writeFile('FEADME.md', data)
-    .then(() => {
-      console.log(`You have successfully created the FEADME.md file`);
-      console.log(`The contents of the file are:\n${data}`);
-    });
+function writeToFile(data, folderPath) {
+    const fileName = 'README.md'
+        return fs.writeFile(path.join(folderPath, `/${fileName}`), data, (err) => {
+        if (err) {
+            console.log(err);
+        } else {
+            // console.log("Your file has been created");
+            console.log(`You have successfully created the ${fileName} file`);
+            console.log(`The contents of the file are:\n${data}`);
+        }
+    })
 }
 
 // function to initialize program
 function init() {
     console.log('\n--------------- README.md File Generator ---------------\n');
-
-    // Boolean choice to begin the process of generating the README file
+    // Choice to begin the process of generating the README file
     inquirer.prompt([
         {
             type:'confirm',
@@ -101,21 +107,10 @@ function init() {
         if (answers.createReadMeChoice){
             inquirer.prompt(questions)
             .then((answers) => {
-                // Use user feedback for... whatever!!
-                // console.log(answers);
-                // console.log(generateMarkdown(answers));
                 const markdown = generateMarkdown(answers);
-                // console.log(markdown);
-                writeToFile(markdown);
+                
+                writeToFile(markdown, answers.path);
             })
-            .then((data) => console.log(data))
-            // .catch((error) => {
-            //     if (error.isTtyError) {
-            //       // Prompt couldn't be rendered in the current environment
-            //     } else {
-            //       // Something else went wrong
-            //     }
-            // });
             } else {
                 console.log('\n---------------------- Goodbye :) ----------------------\n');
             }   
