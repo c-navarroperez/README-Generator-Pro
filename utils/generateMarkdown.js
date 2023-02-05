@@ -43,43 +43,43 @@ function generateMarkdown(data) {
   }
 
   return `
-  # ${data.title}
-  ${licenseTag}
+# ${data.title}
+${licenseTag}
 
-  ## Description 
-  ${data.description}
+## Description 
+${data.description}
 
-  ## Table of Contents
-  * [Installation](#installation)
-  * [Usage](#usage)
-  * [License](#license)
-  * [Contributing](#contributing) 
-  * [Tests](#tests) 
-  * [Questions](#questions) 
-  
-  ## Installation
-  ${data.installation}
+## Table of Contents
+* [Installation](#installation)
+* [Usage](#usage)
+* [Contributing](#contributing) 
+* [Tests](#tests) 
+* [Questions](#questions) 
+* [License](#license)
 
-  ## Usage 
-  ${data.usage}
+## Installation
+${data.installation}
 
-  ## Contributing 
-  ${data.contributing}
+## Usage 
+${data.usage}
 
-  ## Tests
-  ${data.tests}
+## Contributing 
+${data.contributing}
 
-  ## Questions
-  ${data.questions}
+## Tests
+${data.tests}
 
-  Github link: [${data.githubUserName}](https://github.com/${data.githubUserName})
+## Questions
+${data.questions}
 
-  Email adress: ${data.emailAddress}
-  
-  ---
-  
-  ## License 
-  Licensed under the [${data.license}](LICENSE) license.
+Github link: [${data.githubUserName}](https://github.com/${data.githubUserName})
+
+Email adress: ${data.emailAddress}
+
+---
+
+## License 
+Licensed under the [${data.license}](LICENSE) license.
   `;
 }
 
