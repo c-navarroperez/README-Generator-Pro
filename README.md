@@ -16,7 +16,7 @@ The purpose of the application is to provide a more agile process of creating a 
 * [License](#license)
 
 ## Installation
-Download the code to your computer.
+Download the code from GitHub to your computer.
 
 ## Usage 
 To start using the README generator: once the code has been downloaded, navigate to the folder with your preferred terminal and input the following line:
@@ -32,8 +32,9 @@ node index.js
 
 <br>
 
-Click the link for a demo of the README Generator: [Demo Video](https://drive.google.com/file/)
+Click the link for a demo of the README Generator: [Demo Video](https://drive.google.com/file/d/174E7KifyuI0rKORDKEnBp4IpkROZaHuB/view?usp=share_link)
 
+Find the sample file generated in the demo [here](./Sample_README/README.md).
 
 ## Contributing 
 Please [email](#questions) me or report issues directly [here](https://github.com/c-navarroperez/README-Generator-Pro/issues).
@@ -45,7 +46,7 @@ Please message me via the links below.
 
 Github link: [c-navarroperez](https://github.com/c-navarroperez)
 
-Email address: c.navarro@gmail.com
+Email address: carlosnavarro.brs@gmail.com
 
 ## Credits
 * [lukas-h](https://gist.github.com/lukas-h): Markdown License badges [code](https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba).
