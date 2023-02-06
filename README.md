@@ -32,7 +32,7 @@ node index.js
 
 <br>
 
-Click the link for a demo of the README Generator: [Demo Video](./Sample_README/README_demo.mov)
+Click the link for a demo of the README Generator: [Demo Video](https://drive.google.com/file/d/1YwBkc3xOtqV171Q8gD4UbBcZtZP9VksW/view?usp=share_link)
 
 Find the sample file generated in the demo [here](./Sample_README/README.md).
 
